@@ -1,0 +1,55 @@
+1
+4
+2
+9
+surelint
+--std
+--synth
+--style
+--sim
+--race
+--fsm
+--msglimit=none
+/emc/tuttlj/.xemacs/tests/resets.v
+4
+SureLint
+5
+3.0.2
+6
+/emc/tuttlj/.xemacs/tests
+7
+3
+492
+3
+PORDEC
+resets
+
+/emc/tuttlj/.xemacs/tests/resets.v
+60
+80
+0
+
+141
+ERROR [STX-PORDEC]: /emc/tuttlj/.xemacs/tests/resets.v, line 60: module
+	resets, Defined port "pci_s_wrdn" not declared on module port list.
+
+7
+1
+10
+3
+EXTNZR
+
+
+
+0
+19
+0
+
+93
+INFO [STX-EXTNZR]: Errors encountered during lint processing, non-zero exit
+	status returned
+
+3
+1
+/emc/tuttlj/.xemacs/tests/resets.v 0 -1967076479
+0

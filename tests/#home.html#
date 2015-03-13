@@ -1,0 +1,151 @@
+<html>
+  <head>
+<title>The Tuttles' Homepage</title>
+<!-- Changed by: James M. Tuttle, 20-Oct-1997 -->
+<meta name="GENERATOR" content="Mozilla/3.0b4Gold (Win16)">
+</head>
+
+<body bgcolor="#ffffff" link="#0000DD" vlink="#0000DD" alink="#dd0000">
+<!-- body link="#0000dd" vlink="#0000dd" background="backgrnd/paper/tan.gif" --></p>
+
+<center><b>
+<font size="+4">Welcome to The Tuttles' Homepage</font></b><br>
+
+<a href="home_graphical.html">
+Also Available: the graphical version of this Homepage!</a>
+<br>
+</center>
+    <a href="http://www.yahoo.com"></a>
+<hr>
+
+<!-- HOT LIST -->
+
+<center>
+<table cellpadding=5 border=0>
+<caption>
+<font size="+2">Our <b><font COLOR="#dd0000">HOT</font></b> list:</font>
+</caption>
+
+<tr>
+<th>
+<i> <a href="search.html"> Search Engines </a></i>
+</th>
+<th>
+<a href="http://www.yahoo.com"> Yahoo! </a>
+</th>
+<th>
+<a href="http://www.wbz.com/lookweather/welcome.html"> Weather </a>
+</th>
+<th>
+<a href="http://www.cbs.com/cgi-bin/daveguests.cgi"> Letterman </a>
+</th>
+<th>
+<a href=" http://www.nbc.com/tonightshow/guests.html "> Jay Leno </a>
+</th>
+
+<th>
+<a href="http://www.midwinter.com/lurk/eplist.html"> Babylon5 Ep's </a>
+</th>
+      </table>
+</center>
+
+<hr>
+<p>
+
+<center>
+<table border=1 cellpadding=5 bgcolor="#FFFF80">
+<tr>
+<th align=left><font SIZE="+2"><i><a href="fun.html">Fun Pages</a></i></font></th>
+
+<th align=left><font SIZE="+2"><i><a href="serious.html">Serious Pages</a></i></font></th>
+
+<th align=left><font SIZE="+2"><i><a href="computer.html">Computer/Internet Pages</a></i>
+</font></th>
+</tr>
+
+<tr>
+<!-- FUN PAGES -->
+<td valign=top>
+<ul>
+<li><i><a href="cool.html">Cool Sites</a></i> </li>
+
+<li><i><a href="tv.html">TV</a></i> &amp; <i><a href="movies.html">Movies</a></i></li>
+
+<li><i><a href="comics.html">Comics</a></i> </li>
+
+<li><i><a href="outdoor.html">Outdoor Rec.</a></i> 
+&amp; <i><a href="skiing.html">Skiing</a></i></li>
+
+<li><i><a href="boston.html">Boston</a></i> </li>
+
+<li><i><a href="theatre.html">Theatres and Plays</a></i></li>
+
+<li><i><a href="musician.html">Music Artists' Pages</a></i></li>
+
+<li><i><a href="music_co.html">Music Info, Companies, Clubs, &amp; Concerts</a></i></li>
+
+</ul>
+</td>
+
+<!-- SERIOUS PAGES -->
+<td valign=top>
+<ul>
+<li><i><a href="reference.html">Reference Material</a></i> </li>
+
+<li><i><a href="travel.html">Travel</a></i> </li>
+
+<li><i><a href="weather.html">Weather</a></i> </li>
+
+<li><i><a href="shopping.html">On-line Shopping</a></i> </li>
+
+<li><i><a href="newsmags.html">News &amp; Magazines</a> </i> </li>
+
+<li><i><a href="fiction.html">Fiction &amp; Literature</a></i> </li>
+
+<li><i><a href="artpages.html">Art Pages</a></i> </li>
+
+<li><i><a href="wildlife.html">Wildlife &amp; the Environment</a></i></li>
+
+</ul>
+</td>
+
+<!-- COMPUTER PAGES -->
+<td valign=top>
+<ul>
+<li><i><a href="archives.html">Software Archives</a> </i></li>
+
+<li><i><a href="games.html">Games</a> </i></li>
+
+<li><i><a href="macintosh.html">Apple/Macintosh</a> </i></li>
+
+<li><i><a href="windows.html">PC/Windows</a> </i></li>
+
+<li><i><a href="unix.html">UNIX</a> </i></li>
+
+<li><i><a href="web_info.html">Web Info</a> </i></li>
+
+<li><i><a href="internet.html">Internet Info</a> </i></li>
+
+
+
+</ul>
+</td>
+</tr>
+</table>
+</center>
+
+<p>
+<hr>
+
+<table width="100%" border=0>
+<tr valign=top><td width="50%">
+<i>Click for more info <a href="about_pp.html">about these pages</a>,
+or <a href="about_us.html">about us</a>. </i>
+</td>
+<td align=right width="50%">
+<!-- geocities stuff here -->
+</td>
+</tr></table>
+
+</body>
+</html>

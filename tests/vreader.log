@@ -1,0 +1,44 @@
+Host command: /emc/tuttlj/local/bin/vreadern
+Command arguments:
+    /emc/tuttlj/.xemacs/tests/resets.v
+    -b /hwapps/psd14.2/tools/lse/lse/lib/gates
+
+
+vreadern version 4.3 Tue Feb 1 23:52:00 PST 1994 (smcc11)
+Dec  5, 2003  17:24:49
+
+  * Copyright Cadence Design Systems, Inc. 1991.          *
+  *     All Rights Reserved.       Licensed Software.     *
+  * Confidential and proprietary information which is the *
+  *      property of Cadence Design Systems, Inc.         *
+
+Analyzing source file "/emc/tuttlj/.xemacs/tests/resets.v"
+
+Error!    Symbol (pci_s_wrdn) not in port list             [Verilog Reader DS  
+                                                           Builder-SNIPL]      
+          "/emc/tuttlj/.xemacs/tests/resets.v", 59: 
+
+Error!    Identifier (pci_s_wrdn) not declared             [Verilog Reader DS  
+                                                           Builder-IDSND]      
+          "/emc/tuttlj/.xemacs/tests/resets.v", 96: 
+
+Error!    Identifier (pci_s_wrdn) not declared             [Verilog Reader DS  
+                                                           Builder-IDSND]      
+          "/emc/tuttlj/.xemacs/tests/resets.v", 97: 
+
+Error!    Port (pci_s_xwrdn) not declared as input, output                     
+          or inout                                         [Verilog Reader DS  
+                                                           Builder-PNINO]      
+          "/emc/tuttlj/.xemacs/tests/resets.v", 15: 
+
+Warning!  No view was generated from file                                      
+          /emc/tuttlj/.xemacs/tests/resets.v               [Verilog Reader     
+                                                           Command-line        
+                                                           Interface-NVGF]     
+          "/emc/tuttlj/.xemacs/tests/resets.v", 174: 
+300 cpu secs to build
+4 errors   
+
+End of vreadern version 4.3 Tue Feb 1 23:52:00 PST 1994 (smcc11)
+Dec  5, 2003  17:24:50
+

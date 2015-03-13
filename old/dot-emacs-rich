@@ -1,0 +1,187 @@
+;(setq debug-on-error t)
+(setq next-line-add-newlines nil)
+
+(setq mail-default-reply-to "rluongo@clariion.com")
+
+(set-mouse-color "yellow")
+(load-library "paren")
+;; text mode
+(setq text-mode-hook
+      '(lambda () (auto-fill-mode 1)))
+(setq default-major-mode 'text-mode)
+(setq-default case-fold-search nil)
+
+;; c mode defines
+(load "~/.emacs-c-mode.elc")
+(load-library "vpathsearch")
+(server-start)
+(setq visible-bell t)
+
+;; unique buffer names
+
+(load-library "uniquify")
+(require 'uniquify)
+
+(cond (window-system
+        (setq hilit-mode-enable-list  '(not text-mode)
+              hilit-background-mode   'dark
+              hilit-inhibit-hooks     nil
+              hilit-inhibit-rebinding nil)
+ 
+        (require 'hilit19)
+        ))
+
+
+;; misc
+(load-library "repeat.elc")
+(load-library "iswitch.elc")
+;(load-library "gnus-uu.elc")
+;; mview
+(autoload 'mview-file   "mview" nil t)
+(autoload 'mview-buffer "mview" nil t)
+(autoload 'mview-mode   "mview" nil t)
+
+(fset 'view-file   'mview-file)
+(fset 'view-buffer 'mview-buffer)
+
+
+;; This sets any read only file to mview mode
+
+(defun view-if-read-only ()
+  (if (and buffer-read-only 
+	   (not (eq major-mode 'rmail-mode)))
+      (view-buffer (current-buffer))))
+
+(add-hook 'find-file-hooks  'view-if-read-only )
+
+;; scroll in place
+(load-library "scroll-in-place.elc")
+(require 'scroll-in-place)
+
+;; line numbers
+(line-number-mode 1)
+(define-key esc-map "l" 'what-line)
+(define-key esc-map "g" 'goto-line)
+
+;
+;; lpr
+(setq lpr-command "/bin/lp ")
+(setq lpr-switches "-dimagen")
+
+(setq scroll-step 1)
+
+;; frame compile
+(require 'compile-frame)
+
+;; fuzzy matching
+(load-library "fuzzy-match")
+(define-key emacs-lisp-mode-map "\t" 'FM-replace-by-matched-lisp-symbol)
+(setq shell-mode-hook 
+     '(lambda () (define-key shell-mode-map "\t" 'FM-replace-by-matched-filename)))
+
+;; man frames
+(load-library "man-frames")
+(setq Man-notify 'newframe)
+
+;;(load-library "boss")
+;;(global-set-key "\C-x\C-z" 'boss-has-come)
+
+;(load-library "dired-mode++.elc")
+(load-library "shell")
+
+(define-key emacs-lisp-mode-map "\C-a" 'beginning-of-code-line)
+(define-key emacs-lisp-mode-map "\C-e" 'end-of-code-line)
+
+;;(if (eq window-system 'x)
+;;    (x-set-bell t))
+
+;;(and (eq window-system 'x) (eq system-type 'dgux-unix) (load "av300"))
+
+(autoload 'sc-cite-original "supercite" "Supercite 3.1" t)
+(autoload 'sc-cite "supercite" "Supercite 3.1" t)
+
+(add-hook 'mail-citation-hook 'sc-cite-original)
+;(setq news-reply-mode-hook nil)
+;(defun my-sc-overload-hook ()
+ ; (require 'sc-oloads)
+  ;(sc-overload-functions))
+
+;(setq news-reply-mode-hook 'my-sc-overload-hook) ; for RNEWS,GNEWS,GNUS
+
+(setq gnus-nntp-server "wellspring")
+
+;(setq gnus-Startup-hook
+;      '(lambda ()
+;	 (require 'gnus-mark)
+;	 (require 'gnus-speedups)
+;	 (bbdb-insinuate-gnus)
+;	 (define-key gnus-Subject-mode-map "\C-c\C-s\C-u" 'gnus-uudecode-marked-articles)))
+
+;BBDB
+
+;(autoload 'bbdb         "bbdb-com" "Insidious Big Brother Database" t)
+;(autoload 'bbdb-name    "bbdb-com" "Insidious Big Brother Database" t)
+;(autoload 'bbdb-company "bbdb-com" "Insidious Big Brother Database" t)
+;(autoload 'bbdb-net     "bbdb-com" "Insidious Big Brother Database" t)
+;(autoload 'bbdb-notes   "bbdb-com" "Insidious Big Brother Database" t)
+;(autoload 'bbdb-insinuate-vm       "bbdb-vm"    "Hook BBDB into VM")
+;(autoload 'bbdb-insinuate-rmail    "bbdb-rmail" "Hook BBDB into VM")
+;(autoload 'bbdb-insinuate-mh       "bbdb-mhe"   "Hook BBDB into MH-E")
+;(autoload 'bbdb-insinuate-gnus     "bbdb-gnus"  "Hook BBDB into GNUS")
+;(autoload 'bbdb-insinuate-sendmail "bbdb"       "Hook BBDB into VM")
+
+;GNUS
+
+;(autoload 'gnus "gnus" "Read network news." t)
+;(autoload 'gnus-post-news "gnuspost" "Post a new news." t)
+
+;(setq gnus-nntp-server "wellspring")
+;(setq gnus-local-domain "webo.dg.com")
+;(setq gnus-local-organization "CLARiiON Develpment")
+
+;(setq gnus-local-timezone "EST")
+;(setq gnus-news-system 'Cnews)
+;(setq gnus-kill-file-name "gnus-KILL")
+;BBDB/GNUS
+
+;(autoload 'bbdb/gnus-lines-and-from "bbdb-gnus" "Set up BBDB in GNUS." t)
+
+;(setq gnus-optional-headers 'bbdb/gnus-lines-and-from)
+;(setq gnus-Startup-hook
+;      '(lambda ()
+;	 (bbdb-insinuate-gnus)))
+;(setq bbdb/gnus-header-prefer-real-names t) ;; Show fullnames in subject
+;(setq bbdb/news-auto-create-p t)
+;(setq bbdb/mail-auto-create-p t)
+; more GNUS
+
+ 
+;(setq gnus-Startup-hook
+;      '(lambda ()
+;	 (require 'gnus-mark)
+;	 (require 'gnus-speedups)))
+
+
+(put 'upcase-region 'disabled t)
+(put 'eval-expression 'disabled nil)
+
+;;; Commands added by calc-private-autoloads on Wed Nov  3 16:48:45 1993.
+(autoload 'calc-dispatch	   "calc" "Calculator Options" t)
+(autoload 'full-calc		   "calc" "Full-screen Calculator" t)
+(autoload 'full-calc-keypad	   "calc" "Full-screen X Calculator" t)
+(autoload 'calc-eval		   "calc" "Use Calculator from Lisp")
+(autoload 'defmath		   "calc" nil t t)
+(autoload 'calc			   "calc" "Calculator Mode" t)
+(autoload 'quick-calc		   "calc" "Quick Calculator" t)
+(autoload 'calc-keypad		   "calc" "X windows Calculator" t)
+(autoload 'calc-embedded	   "calc" "Use Calc inside any buffer" t)
+(autoload 'calc-embedded-activate  "calc" "Activate =>'s in buffer" t)
+(autoload 'calc-grab-region	   "calc" "Grab region of Calc data" t)
+(autoload 'calc-grab-rectangle	   "calc" "Grab rectangle of data" t)
+(autoload 'edit-kbd-macro	   "macedit" "Edit Keyboard Macro" t)
+(autoload 'edit-last-kbd-macro	   "macedit" "Edit Keyboard Macro" t)
+(autoload 'read-kbd-macro	   "macedit" "Read Keyboard Macro" t)
+(setq load-path (append load-path (list "/usr/local/lib/emacs/19.22/dnld/calc-2.02b")))
+(global-set-key "\e#" 'calc-dispatch)
+;;; End of Calc autoloads.
+

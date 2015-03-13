@@ -1,0 +1,29 @@
+
+Verisity's SureLint v3.0.2
+Version Generated Tue Jul 30 18:03:47 PDT 2002 on SunOS medusa 5.6
+Copyright (c) 1996-2001 Verisity Design, Inc. All Rights Reserved
+
+command: surelint --std --synth --style --sim --race --fsm --msglimit=none /emc/tuttlj/.xemacs/tests/resets.v 
+	
+
+SureLint options:
+SureLint Standard Mode: ON
+SureLint FSM Mode: ON
+SureLint Synthesis Mode: ON
+SureLint Simulation Mode: ON
+SureLint Style Mode: ON
+SureLint RMM Mode: OFF
+SureLint DFT Mode: OFF
+SureLint Race Mode: ON
+SureLint User Defined Checks: OFF
+
+Compiling /emc/tuttlj/.xemacs/tests/resets.v...
+-------------------------
+ERROR [STX-PORDEC]: /emc/tuttlj/.xemacs/tests/resets.v, line 60: module
+	resets, Defined port "pci_s_wrdn" not declared on module port list.
+Parsing complete; 1 file processed.
+Total lines of verilog parsed: 173
+INFO [STX-EXTNZR]: Errors encountered during lint processing, non-zero exit
+	status returned
+SureLint Message file is: sv_msg.lnt
+Run complete; 1 error was found, 0 warnings were found.

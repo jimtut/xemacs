@@ -1,0 +1,21 @@
+#!/usr/bin/perl
+
+use CGI;
+
+$q = new CGI;
+
+print $q->header,$q->start_html(-title=>'Environment Variables'),"<TABLE border=1>";
+
+foreach $key (keys %ENV){
+	print <<HTML
+		<TR><TD>$key</TD><TD>$ENV{$key}</TD></TR>\n
+HTML
+}
+
+print "<tr><td>@" . "INC</td><td>";
+foreach $path (@INC) {
+	print "$path<br>\n";
+}
+print "</td></tr>";
+
+print "</TABLE>",$q->end_html;

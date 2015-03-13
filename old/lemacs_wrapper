@@ -1,0 +1,119 @@
+#!/bin/sh
+#--------------------------------------------------------------------------
+#
+#    XEmacs startup script
+#
+#-------------------------------------------------------------------------
+
+#
+#    Defaults configured by installation.
+#
+DEF_LEMACS_ROOTDIR=
+
+#
+#    Setup important Lemacs environment variables.
+#
+
+# if the user has set CDS_INST_DIR, honor it
+# this avoids running cds_root - which can be slow
+if [ "X$CDS_INST_DIR" = "X" ]
+then
+    {
+    #echo "running cds_root..."
+    CDS_INST_DIR=`cds_root $0` 
+    }
+fi
+
+#check for CDS_INST_DIR still undefined or invalid
+if [ "X$CDS_INST_DIR" = "X" -o ! -d "$CDS_INST_DIR" ]
+then
+    {
+    echo
+    echo "ERROR: CDS_INST_DIR points to an invalid CDS root directory."
+    echo "       Unset CDS_INST_DIR; also check that \"cds_root\" is accessible"
+    echo "       in the path and that it returns a valid path to the hierarchy."
+    echo
+    } >&2
+    exit 1
+fi
+
+# export CDS_INST_DIR - will be accessed by .emacs file
+CDS_INST_DIR=`echo $CDS_INST_DIR | sed 's/\/$//g'`
+export CDS_INST_DIR
+echo $CDS_INST_DIR
+#now set up LEMACS_ROOTDIR
+LEMACS_ROOTDIR=$CDS_INST_DIR/tools/lse/lemacs
+export LEMACS_ROOTDIR
+
+#LEMACS_ROOTDIR=${LEMACS_ROOTDIR:-$DEF_LEMACS_ROOTDIR}
+LEMACS_PATH=${LEMACS_PATH:-$LEMACS_ROOTDIR/bin}
+export LEMACS_PATH
+
+#
+#    Test if we can see the app-defaults file..
+#
+EMACS_FILE=$LEMACS_ROOTDIR/etc/X11/app-defaults/Emacs
+if [ ! -r $EMACS_FILE ]
+then
+    {
+    echo
+    echo "WARNING: Could not locate the Emacs application defaults file:"
+    echo "          '\$LEMACS_ROOTDIR/etc/X11/app-defaults/Emacs'"
+    echo "         Emacs application defaults may not be loaded correctly."
+    echo "         Check that LEMACS_ROOTDIR is correctly set."
+    echo
+    } >&2
+fi
+
+#
+#    Setup XFILESEARCHPATH to locate X app-defaults files.
+#    - see XtResolvePathnames() in X Toolkit doc.
+#
+xfiles=$LEMACS_ROOTDIR/etc/X11/app-defaults/%L/%T/%N:$LEMACS_ROOTDIR/etc/X11/app-defaults/%T/%N
+case X$XFILESEARCHPATH in
+  X) XFILESEARCHPATH=$xfiles                  ;;
+  *) XFILESEARCHPATH=$xfiles:$XFILESEARCHPATH ;;
+esac
+export XFILESEARCHPATH
+
+#
+#    Setup XBMLANGPATH so Motif can locate bitmap files.
+#    - see XtResolvePathnames() in X Toolkit doc.
+#
+bmfiles=$LEMACS_ROOTDIR/etc/X11/bitmaps/%B
+case X$XBMLANGPATH in
+  X) XBMLANGPATH=$bmfiles              ;;
+  *) XBMLANGPATH=$bmfiles:$XBMLANGPATH ;;
+esac
+export XBMLANGPATH
+
+#
+#    Set a pointer to a workable keysym file for Motif keys.
+#
+XKEYSYMDB=${XKEYSYMDB-$LEMACS_ROOTDIR/etc/X11/XKeysymDB}
+export XKEYSYMDB
+PLATFORM=`$LEMACS_ROOTDIR/bin/config.sh`
+LEMACS=$LEMACS_ROOTDIR/lemacs/bin/$PLATFORM/lemacs
+if [ -x $LEMACS ]
+then
+#    exec $LEMACS "$@"
+    exec $LEMACS $@
+    err="Could not exec Emacs executable"
+else
+    err="Could not locate the Emacs executable"
+fi
+
+{
+echo "lemacs:  ${err}:"
+echo "          '\$LEMACS_ROOTDIR/lemacs/lemacs'"
+echo "         Check that LEMACS_ROOTDIR is correctly set."
+} >&2
+
+exit 1
+
+
+
+
+
+
+
